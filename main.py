@@ -28,11 +28,7 @@ IMAGE_TIMEOUT = 5  # seconds
 selected_map_url = None
 selected_card = None
 
-
-# =================================================
 # Difficulty Logic
-# =================================================
-
 
 def rank_to_star_piecewise(rank: int) -> float:
     ranges = [
@@ -93,11 +89,7 @@ def search_beatmaps(star_min, star_max, mode):
     response.raise_for_status()
     return response.json().get("beatmapsets", [])
 
-
-# =================================================
 # UI Helpers 
-# =================================================
-
 
 def load_cover(url):
     try:
@@ -169,10 +161,7 @@ def create_beatmap_card(parent, bm):
     mapper_label.bind("<Button-1>", lambda e: select_card())
 
 
-# =================================================
 # Results Handling
-# =================================================
-
 
 def display_results(beatmaps):
     global selected_map_url, selected_card
@@ -242,8 +231,6 @@ try:
 except Exception:
     pass  # fails silently on non-Windows platforms
 
-
-# --- Top ---
 top_frame = ctk.CTkFrame(app)
 top_frame.pack(fill="x", padx=24, pady=20)
 
